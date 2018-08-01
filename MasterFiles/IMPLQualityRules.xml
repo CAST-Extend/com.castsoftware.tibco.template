@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <metric id='2758010' type='quality-rule' originalName='Tibco SDK: Activity type cannot be migrated' xxl='N/A' unify='N/A' executionLocation='local-central' scopeID='2758009' scopeLabel='TibcoScope' propertyID='2758020' associatedValueResultType='no-value' failedChecksOperator1='count-distinct' failedChecksProcedure='DSS_DIAG_SCOPE_GENERIC_NUM' totalChecksProcedure='DSS_DIAG_TOTAL_GENERIC' consolidationLocalProcedure='DSS_FILTER_SCOPE' consolidationCentralProcedure='N/A' />
+  
+</root>

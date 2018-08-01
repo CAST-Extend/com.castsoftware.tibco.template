@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:ns="http://www.PepsiCo.com/unique/default/namespace/CommonLE" xmlns:ns41="http://www.tibco.com/ns/no_namespace_schema_location/BusinessProcesses/Publishers/InterfaceName_SID_ID_Source/Custom Resources/Publisher_SID_ID_Source.xsd" xmlns:Gen_ID="java://com.tibco.GenerateID" xmlns:pfx5="http://www.PepsiCo.com/NorthAmerica/US/MFG/MM/ZMATMAS05" xmlns:pfx4="http://www.tibco.com/schemas/1UPBWTemplateProjectR7/SharedResources/SchemaDefinitions/Common/Schema.xsd" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:pfx3="http://www.PepsiCo.com/unique/default/namespace/ProcessVariables" xmlns:pfx2="http://www.PepsiCo.com/NorthAmerica/US/MFG/PROD/ZINVENTORY01" xmlns:pfx7="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/731/basic/IDOCS" xmlns:pfx6="http://www.PepsiCo.com/NorthAmerica/US/OTC/WO/ZDEBMAS06" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx51="http://www.PepsiCo.com/schemas/SharedResources/SchemaDefinitions/Common/JobAssignments.xsd" xmlns:ns9="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/700/basic/IDOCS" xmlns:ns5="http://www.tibco.com/xmlns/ae2xsd/2002/05/ae/701/basic/IDOCS" xmlns:ns12="com/tibco/pe/commands" xmlns:ns13="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:ns6="http://www.PepsiCo.com/NorthAmerica/US/OTC/WO/ZOMSORDER" xmlns:pfx="http://www.tibco.com/ns/no_namespace_schema_location/BusinessProcesses/Subscribers/InterfaceName_CaliberID_TechDesignID_Target/CustomResources/Subscribers_SID_ID_Target_Input.xsd" xmlns:ns10="http://www.PepsiCo.com/NorthAmerica/US/OTC/WO/ZINVOIC02_HHU" xmlns:ns7="http://www.tibco.com/namespaces/tnt/plugins/file" xmlns:ns8="http://www.PepsiCo.com/NorthAmerica/US/OTC/WO/ZOMSORDER01" xmlns:ns11="http://www.PepsiCo.com/NorthAmerica/US/OTC/Z_CUSTHIER_CRT" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns2="http://www.tibco.com/pe/DeployedVarsType" xmlns:ns1="http://www.tibco.com/pe/EngineTypes" xmlns:ns4="http://www.PepsiCo.com/unique/default/namespace/InterfaceName_FDID_TDID_Target" xmlns:ns3="http://www.tibco.com/namespaces/tnt/plugins/jms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <xsd:import namespace="http://www.PepsiCo.com/unique/default/namespace/ProcessVariables" schemaLocation="/SharedResources/SchemaDefinitions/Common/ProcessVariables.xsd"/>
+    <xsd:import namespace="http://www.PepsiCo.com/unique/default/namespace/InterfaceName_FDID_TDID_Target"/>
+    <xsd:import namespace="http://www.PepsiCo.com/NorthAmerica/US/MFG/PROD/ZINVENTORY01" schemaLocation="/SharedResources/SchemaDefinitions/Canonical/ZINVENTORY01.xsd"/>
+    <xsd:import namespace="http://www.PepsiCo.com/NorthAmerica/US/MFG/MM/ZMATMAS05" schemaLocation="/SharedResources/SchemaDefinitions/Canonical/ZMATMAS05.xsd"/>
+    <xsd:import namespace="http://www.PepsiCo.com/NorthAmerica/US/OTC/WO/ZDEBMAS06" schemaLocation="/SharedResources/SchemaDefinitions/Canonical/ZDEBMAS06.xsd"/>
+    <pd:name>BusinessProcesses/PointToPoint/CustomerHierarchy_188800_188006_MDM/AdapterQueueStarter.process</pd:name>
+    <pd:description>Contains Starter process for this interface.</pd:description>
+    <pd:startName>AdapterSubscriber</pd:startName>
+    <pd:startX>0</pd:startX>
+    <pd:startY>0</pd:startY>
+    <pd:returnBindings/>
+    <pd:starter name="AdapterSubscriber">
+        <pd:type>com.tibco.plugin.ae.AESubscriberActivity</pd:type>
+        <pd:resourceType>ae.aepalette.aeSubscription</pd:resourceType>
+        <pd:x>77</pd:x>
+        <pd:y>49</pd:y>
+        <config>
+            <ae.aepalette.sharedProperties.transportChoice>default</ae.aepalette.sharedProperties.transportChoice>
+            <ae.aepalette.sharedProperties.useRequestReply>false</ae.aepalette.sharedProperties.useRequestReply>
+            <ae.aepalette.sharedProperties.adapterService>/Adapter/SAP/COE_O_Z_CUSTHIER_CR.adr3#adapterService.ECC_Z_CUSTHIER_CRT_SAP_adr3_Pub_Srv</ae.aepalette.sharedProperties.adapterService>
+            <tpPluginEndpointName>ECC_Z_CUSTHIER_CRT_SAP_adr3_Pub_Srv</tpPluginEndpointName>
+            <ae.aepalette.sharedProperties.transportType>jmsQueue</ae.aepalette.sharedProperties.transportType>
+            <ae.aepalette.sharedProperties.jmsQueueSessionQueue>%%Env%%.pep.us.otc.ECC_Z_CUSTHIER_CRT.create.adr3.master.sub</ae.aepalette.sharedProperties.jmsQueueSessionQueue>
+            <ae.aepalette.sharedProperties.jmsQueueSessionConnectionFactory>QueueConnectionFactory</ae.aepalette.sharedProperties.jmsQueueSessionConnectionFactory>
+            <ae.aepalette.sharedProperties.jmsSessionUsername>%%Connections/JMS/JMSServer_OneUp/UserName%%</ae.aepalette.sharedProperties.jmsSessionUsername>
+            <ae.aepalette.sharedProperties.jmsSessionPassword>%%Connections/JMS/JMSServer_OneUp/Password%%</ae.aepalette.sharedProperties.jmsSessionPassword>
+            <ae.aepalette.sharedProperties.jmsSessionProviderURL>%%Connections/JMS/JMSServer_OneUp/Provider_Url%%</ae.aepalette.sharedProperties.jmsSessionProviderURL>
+            <ae.aepalette.sharedProperties.outputMeta>
+                <aeMeta>/AESchemas/ae/731/basic/IDOCS.aeschema#class.Z_CUSTHIER_CRT-4x</aeMeta>
+            </ae.aepalette.sharedProperties.outputMeta>
+        </config>
+        <pd:inputBindings/>
+    </pd:starter>
+    <pd:endName>End</pd:endName>
+    <pd:endX>788</pd:endX>
+    <pd:endY>165</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables>
+        <ISVariables ref="pfx3:InterfaceSpecificVariables"/>
+    </pd:processVariables>
+    <pd:targetNamespace>http://www.PepsiCo.com/BusinessProcesses/PointToPoint/CustomerHierarchy_188800_188806_MDM/AdapterQueueStarter</pd:targetNamespace>
+    <pd:activity name="Catch">
+        <pd:type>com.tibco.pe.core.CatchActivity</pd:type>
+        <pd:resourceType>ae.activities.catch</pd:resourceType>
+        <pd:x>536</pd:x>
+        <pd:y>252</pd:y>
+        <pd:handler>true</pd:handler>
+        <config>
+            <catchAll>true</catchAll>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Confirm">
+        <pd:type>com.tibco.pe.core.ConfirmActivity</pd:type>
+        <pd:resourceType>activity.confirm</pd:resourceType>
+        <pd:x>660</pd:x>
+        <pd:y>165</pd:y>
+        <config>
+            <ConfirmEvent>AdapterSubscriber</ConfirmEvent>
+        </config>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="CoreProcess">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>612</pd:x>
+        <pd:y>48</pd:y>
+        <config>
+            <processName>/BusinessProcesses/PointToPoint/CustomerHierarchy_188800_188006_MDM/SubProcesses/CoreProcess.process</processName>
+        </config>
+        <pd:inputBindings>
+            <root>
+                <ns11:Z_CUSTHIER_CRT_UOW>
+                    <ns11:Header>
+                        <ns11:BusinessID>
+                            <xsl:value-of select="$JobSharedVariables/pfx3:ProcessVariableList/pfx3:Header/pfx3:BusinessID"/>
+                        </ns11:BusinessID>
+                        <xsl:if test="$JobSharedVariables/pfx3:ProcessVariableList/pfx3:Header/pfx3:BusinessID2">
+                            <ns11:BusinessID2>
+                                <xsl:value-of select="$JobSharedVariables/pfx3:ProcessVariableList/pfx3:Header/pfx3:BusinessID2"/>
+                            </ns11:BusinessID2>
+                        </xsl:if>
+                        <ns11:SourceSystemID>
+                            <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/Source"/>
+                        </ns11:SourceSystemID>
+                        <ns11:SourceSystemName>
+                            <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/Source"/>
+                        </ns11:SourceSystemName>
+                        <ns11:Event>
+                            <ns11:TransactionID>
+                                <xsl:value-of select="$JobSharedVariables/pfx3:ProcessVariableList/pfx3:Header/pfx3:TransactionID"/>
+                            </ns11:TransactionID>
+                            <ns11:Timestamp>
+                                <xsl:value-of select="tib:timestamp()"/>
+                            </ns11:Timestamp>
+                        </ns11:Event>
+                    </ns11:Header>
+                    <ns11:BusinessDocument>
+                        <xsl:attribute name="DocumentName">
+                            <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/IDOCTYP"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="DocumentId">
+                            <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/DOCNUM"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="DocumentVersion">
+                            <xsl:value-of select="'1.0'"/>
+                        </xsl:attribute>
+                        <ns11:Z_CUSTHIER_CRT>
+                            <ns11:IDOC>
+                                <xsl:for-each select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC">
+                                    <ns11:EDI__DC>
+                                        <ns11:TABNAM>
+                                            <xsl:value-of select="TABNAM"/>
+                                        </ns11:TABNAM>
+                                        <ns11:MANDT>
+                                            <xsl:value-of select="MANDT"/>
+                                        </ns11:MANDT>
+                                        <ns11:DOCNUM>
+                                            <xsl:value-of select="DOCNUM"/>
+                                        </ns11:DOCNUM>
+                                        <ns11:DOCREL>
+                                            <xsl:value-of select="DOCREL"/>
+                                        </ns11:DOCREL>
+                                        <ns11:STATUS>
+                                            <xsl:value-of select="STATUS"/>
+                                        </ns11:STATUS>
+                                        <ns11:DIRECT>
+                                            <xsl:value-of select="DIRECT"/>
+                                        </ns11:DIRECT>
+                                        <ns11:OUTMOD>
+                                            <xsl:value-of select="OUTMOD"/>
+                                        </ns11:OUTMOD>
+                                        <ns11:EXPRSS>
+                                            <xsl:value-of select="EXPRSS"/>
+                                        </ns11:EXPRSS>
+                                        <ns11:TEST>
+                                            <xsl:value-of select="TEST"/>
+                                        </ns11:TEST>
+                                        <ns11:IDOCTYP>
+                                            <xsl:value-of select="IDOCTYP"/>
+                                        </ns11:IDOCTYP>
+                                        <ns11:CIMTYP>
+                                            <xsl:value-of select="CIMTYP"/>
+                                        </ns11:CIMTYP>
+                                        <ns11:MESTYP>
+                                            <xsl:value-of select="MESTYP"/>
+                                        </ns11:MESTYP>
+                                        <ns11:MESCOD>
+                                            <xsl:value-of select="MESCOD"/>
+                                        </ns11:MESCOD>
+                                        <ns11:MESFCT>
+                                            <xsl:value-of select="MESFCT"/>
+                                        </ns11:MESFCT>
+                                        <ns11:STD>
+                                            <xsl:value-of select="STD"/>
+                                        </ns11:STD>
+                                        <ns11:STDVRS>
+                                            <xsl:value-of select="STDVRS"/>
+                                        </ns11:STDVRS>
+                                        <ns11:STDMES>
+                                            <xsl:value-of select="STDMES"/>
+                                        </ns11:STDMES>
+                                        <ns11:SNDPOR>
+                                            <xsl:value-of select="SNDPOR"/>
+                                        </ns11:SNDPOR>
+                                        <ns11:SNDPRT>
+                                            <xsl:value-of select="SNDPRT"/>
+                                        </ns11:SNDPRT>
+                                        <ns11:SNDPFC>
+                                            <xsl:value-of select="SNDPFC"/>
+                                        </ns11:SNDPFC>
+                                        <ns11:SNDPRN>
+                                            <xsl:value-of select="SNDPRN"/>
+                                        </ns11:SNDPRN>
+                                        <ns11:SNDSAD>
+                                            <xsl:value-of select="SNDSAD"/>
+                                        </ns11:SNDSAD>
+                                        <ns11:SNDLAD>
+                                            <xsl:value-of select="SNDLAD"/>
+                                        </ns11:SNDLAD>
+                                        <ns11:RCVPOR>
+                                            <xsl:value-of select="RCVPOR"/>
+                                        </ns11:RCVPOR>
+                                        <ns11:RCVPRT>
+                                            <xsl:value-of select="RCVPRT"/>
+                                        </ns11:RCVPRT>
+                                        <ns11:RCVPFC>
+                                            <xsl:value-of select="RCVPFC"/>
+                                        </ns11:RCVPFC>
+                                        <ns11:RCVPRN>
+                                            <xsl:value-of select="RCVPRN"/>
+                                        </ns11:RCVPRN>
+                                        <ns11:RCVSAD>
+                                            <xsl:value-of select="RCVSAD"/>
+                                        </ns11:RCVSAD>
+                                        <ns11:RCVLAD>
+                                            <xsl:value-of select="RCVLAD"/>
+                                        </ns11:RCVLAD>
+                                        <ns11:CREDAT>
+                                            <xsl:value-of select="CREDAT"/>
+                                        </ns11:CREDAT>
+                                        <ns11:CRETIM>
+                                            <xsl:value-of select="CRETIM"/>
+                                        </ns11:CRETIM>
+                                        <ns11:REFINT>
+                                            <xsl:value-of select="REFINT"/>
+                                        </ns11:REFINT>
+                                        <ns11:REFGRP>
+                                            <xsl:value-of select="REFGRP"/>
+                                        </ns11:REFGRP>
+                                        <ns11:REFMES>
+                                            <xsl:value-of select="REFMES"/>
+                                        </ns11:REFMES>
+                                        <ns11:ARCKEY>
+                                            <xsl:value-of select="ARCKEY"/>
+                                        </ns11:ARCKEY>
+                                        <ns11:SERIAL>
+                                            <xsl:value-of select="SERIAL"/>
+                                        </ns11:SERIAL>
+                                    </ns11:EDI__DC>
+                                </xsl:for-each>
+                                <xsl:for-each select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/CHILDREN/ZCUSTHIER/item">
+                                    <xsl:for-each select="FIELDS">
+                                        <ns11:ZCUSTHIER>
+                                            <ns11:CLIENT>
+                                                <xsl:value-of select="CLIENT"/>
+                                            </ns11:CLIENT>
+                                            <ns11:CUSTHITYP>
+                                                <xsl:value-of select="CUSTHITYP"/>
+                                            </ns11:CUSTHITYP>
+                                            <ns11:CUSTOMER>
+                                                <xsl:value-of select="CUSTOMER"/>
+                                            </ns11:CUSTOMER>
+                                            <ns11:SALESORG>
+                                                <xsl:value-of select="SALESORG"/>
+                                            </ns11:SALESORG>
+                                            <xsl:if test="not((DISTR__CHAN/@xsi:nil=(&quot;true&quot;)) or (DISTR__CHAN/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:DISTR_CHAN>
+                                                    <xsl:value-of select="DISTR__CHAN"/>
+                                                </ns11:DISTR_CHAN>
+                                            </xsl:if>
+                                            <ns11:DIVISION>
+                                                <xsl:value-of select="DIVISION"/>
+                                            </ns11:DIVISION>
+                                            <xsl:if test="not((VALID__FROM/@xsi:nil=(&quot;true&quot;)) or (VALID__FROM/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:VALID_FROM>
+                                                    <xsl:value-of select="VALID__FROM"/>
+                                                </ns11:VALID_FROM>
+                                            </xsl:if>
+                                            <xsl:if test="not((VALID__TO/@xsi:nil=(&quot;true&quot;)) or (VALID__TO/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:VALID_TO>
+                                                    <xsl:value-of select="VALID__TO"/>
+                                                </ns11:VALID_TO>
+                                            </xsl:if>
+                                            <xsl:if test="not((PARENT__CUSTOMER/@xsi:nil=(&quot;true&quot;)) or (PARENT__CUSTOMER/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:PARENT_CUSTOMER>
+                                                    <xsl:value-of select="PARENT__CUSTOMER"/>
+                                                </ns11:PARENT_CUSTOMER>
+                                            </xsl:if>
+                                            <xsl:if test="not((PARENT__SALES__ORG/@xsi:nil=(&quot;true&quot;)) or (PARENT__SALES__ORG/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:PARENT_SALES_ORG>
+                                                    <xsl:value-of select="PARENT__SALES__ORG"/>
+                                                </ns11:PARENT_SALES_ORG>
+                                            </xsl:if>
+                                            <xsl:if test="not((PARENT__DISTR__CHAN/@xsi:nil=(&quot;true&quot;)) or (PARENT__DISTR__CHAN/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:PARENT_DISTR_CHAN>
+                                                    <xsl:value-of select="PARENT__DISTR__CHAN"/>
+                                                </ns11:PARENT_DISTR_CHAN>
+                                            </xsl:if>
+                                            <xsl:if test="not((PARENT__DIVISION/@xsi:nil=(&quot;true&quot;)) or (PARENT__DIVISION/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:PARENT_DIVISION>
+                                                    <xsl:value-of select="PARENT__DIVISION"/>
+                                                </ns11:PARENT_DIVISION>
+                                            </xsl:if>
+                                            <ns11:ROUTINE>
+                                                <xsl:value-of select="ROUTINE"/>
+                                            </ns11:ROUTINE>
+                                            <xsl:if test="not((REBATE__REL/@xsi:nil=(&quot;true&quot;)) or (REBATE__REL/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:REBATE_REL>
+                                                    <xsl:value-of select="REBATE__REL"/>
+                                                </ns11:REBATE_REL>
+                                            </xsl:if>
+                                            <xsl:if test="not((PRIC__REL/@xsi:nil=(&quot;true&quot;)) or (PRIC__REL/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:PRIC_REL>
+                                                    <xsl:value-of select="PRIC__REL"/>
+                                                </ns11:PRIC_REL>
+                                            </xsl:if>
+                                            <xsl:if test="not((ASSIGN__HI/@xsi:nil=(&quot;true&quot;)) or (ASSIGN__HI/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:ASSIGN_HI>
+                                                    <xsl:value-of select="ASSIGN__HI"/>
+                                                </ns11:ASSIGN_HI>
+                                            </xsl:if>
+                                            <ns11:KTOKD>
+                                                <xsl:value-of select="KTOKD"/>
+                                            </ns11:KTOKD>
+                                            <ns11:ZZNODETYPE>
+                                                <xsl:value-of select="ZZNODETYPE"/>
+                                            </ns11:ZZNODETYPE>
+                                            <ns11:ZZBUSSEG>
+                                                <xsl:value-of select="ZZBUSSEG"/>
+                                            </ns11:ZZBUSSEG>
+                                            <ns11:ZZNODENO>
+                                                <xsl:value-of select="ZZNODENO"/>
+                                            </ns11:ZZNODENO>
+                                            <ns11:ZZSYSNUMPLT>
+                                                <xsl:value-of select="ZZSYSNUMPLT"/>
+                                            </ns11:ZZSYSNUMPLT>
+                                            <ns11:ZZSYSNUMBIN>
+                                                <xsl:value-of select="ZZSYSNUMBIN"/>
+                                            </ns11:ZZSYSNUMBIN>
+                                            <ns11:ZZJOBTYPE>
+                                                <xsl:value-of select="ZZJOBTYPE"/>
+                                            </ns11:ZZJOBTYPE>
+                                            <ns11:NAME1>
+                                                <xsl:value-of select="NAME1"/>
+                                            </ns11:NAME1>
+                                            <xsl:if test="not((TELF1__CONTACT/@xsi:nil=(&quot;true&quot;)) or (TELF1__CONTACT/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:TELF1_CONTACT>
+                                                    <xsl:value-of select="TELF1__CONTACT"/>
+                                                </ns11:TELF1_CONTACT>
+                                            </xsl:if>
+                                            <ns11:TELFX>
+                                                <xsl:value-of select="TELFX"/>
+                                            </ns11:TELFX>
+                                            <xsl:if test="not((NAME1__CONTACT/@xsi:nil=(&quot;true&quot;)) or (NAME1__CONTACT/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:NAME1_CONTACT>
+                                                    <xsl:value-of select="NAME1__CONTACT"/>
+                                                </ns11:NAME1_CONTACT>
+                                            </xsl:if>
+                                            <xsl:if test="not((STR__SUPPL1/@xsi:nil=(&quot;true&quot;)) or (STR__SUPPL1/@xsi:nil=(&quot;1&quot;)))">
+                                                <ns11:STR_SUPPL1>
+                                                    <xsl:value-of select="STR__SUPPL1"/>
+                                                </ns11:STR_SUPPL1>
+                                            </xsl:if>
+                                            <ns11:SORTL>
+                                                <xsl:value-of select="SORTL"/>
+                                            </ns11:SORTL>
+                                            <ns11:STRAS>
+                                                <xsl:value-of select="STRAS"/>
+                                            </ns11:STRAS>
+                                            <ns11:ORT01>
+                                                <xsl:value-of select="ORT01"/>
+                                            </ns11:ORT01>
+                                            <ns11:REGIO>
+                                                <xsl:value-of select="REGIO"/>
+                                            </ns11:REGIO>
+                                            <ns11:LAND1>
+                                                <xsl:value-of select="LAND1"/>
+                                            </ns11:LAND1>
+                                            <ns11:PSTLZ>
+                                                <xsl:value-of select="PSTLZ"/>
+                                            </ns11:PSTLZ>
+                                            <ns11:SYSID>
+                                                <xsl:value-of select="SYSID"/>
+                                            </ns11:SYSID>
+                                            <ns11:AUFSD>
+                                                <xsl:value-of select="AUFSD"/>
+                                            </ns11:AUFSD>
+                                            <ns11:ZZKEYACCT>
+                                                <xsl:value-of select="ZZKEYACCT"/>
+                                            </ns11:ZZKEYACCT>
+                                            <ns11:TCODE>
+                                                <xsl:value-of select="TCODE"/>
+                                            </ns11:TCODE>
+                                            <ns11:ZZCISID>
+                                                <xsl:value-of select="ZZCISID"/>
+                                            </ns11:ZZCISID>
+                                            <xsl:for-each select="../CHILDREN/ZCOSTCCTR/item">
+                                                <xsl:for-each select="FIELDS">
+                                                    <ns11:ZCOSTCCTR>
+                                                        <ns11:CLIENT>
+                                                            <xsl:value-of select="CLIENT"/>
+                                                        </ns11:CLIENT>
+                                                        <ns11:CUSTOMER>
+                                                            <xsl:value-of select="CUSTOMER"/>
+                                                        </ns11:CUSTOMER>
+                                                        <xsl:if test="not((COST__CCTR__TYPE/@xsi:nil=(&quot;true&quot;)) or (COST__CCTR__TYPE/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:COST_CCTR_TYPE>
+                                                                <xsl:value-of select="COST__CCTR__TYPE"/>
+                                                            </ns11:COST_CCTR_TYPE>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((COST__CCTR/@xsi:nil=(&quot;true&quot;)) or (COST__CCTR/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:COST_CCTR>
+                                                                <xsl:value-of select="COST__CCTR"/>
+                                                            </ns11:COST_CCTR>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((VALID__FROM/@xsi:nil=(&quot;true&quot;)) or (VALID__FROM/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:VALID_FROM>
+                                                                <xsl:value-of select="VALID__FROM"/>
+                                                            </ns11:VALID_FROM>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((VALID__TO/@xsi:nil=(&quot;true&quot;)) or (VALID__TO/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:VALID_TO>
+                                                                <xsl:value-of select="VALID__TO"/>
+                                                            </ns11:VALID_TO>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((CREATED__ON/@xsi:nil=(&quot;true&quot;)) or (CREATED__ON/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:CREATED_ON>
+                                                                <xsl:value-of select="CREATED__ON"/>
+                                                            </ns11:CREATED_ON>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((CREATED__BY/@xsi:nil=(&quot;true&quot;)) or (CREATED__BY/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:CREATED_BY>
+                                                                <xsl:value-of select="CREATED__BY"/>
+                                                            </ns11:CREATED_BY>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((CHANGED__ON/@xsi:nil=(&quot;true&quot;)) or (CHANGED__ON/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:CHANGED_ON>
+                                                                <xsl:value-of select="CHANGED__ON"/>
+                                                            </ns11:CHANGED_ON>
+                                                        </xsl:if>
+                                                        <xsl:if test="not((CHANGED__BY/@xsi:nil=(&quot;true&quot;)) or (CHANGED__BY/@xsi:nil=(&quot;1&quot;)))">
+                                                            <ns11:CHANGED_BY>
+                                                                <xsl:value-of select="CHANGED__BY"/>
+                                                            </ns11:CHANGED_BY>
+                                                        </xsl:if>
+                                                    </ns11:ZCOSTCCTR>
+                                                </xsl:for-each>
+                                            </xsl:for-each>
+                                        </ns11:ZCUSTHIER>
+                                    </xsl:for-each>
+                                </xsl:for-each>
+                            </ns11:IDOC>
+                        </ns11:Z_CUSTHIER_CRT>
+                    </ns11:BusinessDocument>
+                </ns11:Z_CUSTHIER_CRT_UOW>
+            </root>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Engine Command">
+        <pd:type>com.tibco.pe.core.EngineCommandActivity</pd:type>
+        <pd:resourceType>ae.activities.enginecommand</pd:resourceType>
+        <pd:x>786</pd:x>
+        <pd:y>254</pd:y>
+        <config>
+            <command>SuspendProcessInstance</command>
+        </config>
+        <pd:inputBindings>
+            <ns12:input>
+                <ProcessId>
+                    <xsl:value-of select="$_processContext/ns1:ProcessContext/ProcessId"/>
+                </ProcessId>
+            </ns12:input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Error">
+        <pd:type>com.tibco.plugin.timer.NullActivity</pd:type>
+        <pd:resourceType>ae.activities.null</pd:resourceType>
+        <pd:x>75</pd:x>
+        <pd:y>165</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="ISVariablesAssign">
+        <pd:type>com.tibco.pe.core.AssignActivity</pd:type>
+        <pd:resourceType>ae.activities.assignActivity</pd:resourceType>
+        <pd:x>218</pd:x>
+        <pd:y>49</pd:y>
+        <config>
+            <variableName>ISVariables</variableName>
+        </config>
+        <pd:inputBindings>
+            <pfx3:InterfaceSpecificVariables>
+                <pfx3:BeginTime>
+                    <xsl:value-of select="tib:timestamp()"/>
+                </pfx3:BeginTime>
+                <pfx3:ServiceName>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/ServiceID"/>
+                </pfx3:ServiceName>
+                <pfx3:ComponentName>
+                    <xsl:value-of select="concat(&quot;BusinessProcesses/PointToPoint/&quot;, &#xA;$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/TransactionDomain,&quot;_&quot;,&#xA;$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/ServiceID,&quot;/AdapterQueueStarter&quot;)"/>
+                </pfx3:ComponentName>
+                <pfx3:TransactionDomain>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/TransactionDomain"/>
+                </pfx3:TransactionDomain>
+                <xsl:choose>
+                    <xsl:when test="string-length($AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/DOCNUM)>0">
+                        <pfx3:BusinessID>
+                            <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/DOCNUM"/>
+                        </pfx3:BusinessID>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <pfx3:BusinessID>
+                            <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/ServiceID"/>
+                        </pfx3:BusinessID>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <pfx3:BusinessID2>
+                    <xsl:value-of select="concat($AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/SNDLAD, &quot;_&quot;, &#xA;$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/CHILDREN/ZCUSTHIER/item[1]/FIELDS/CUSTOMER)"/>
+                </pfx3:BusinessID2>
+                <pfx3:ApplicationDomain>
+                    <xsl:value-of select="concat($_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/Source,&quot;_&quot;, &#xA;$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/Target)"/>
+                </pfx3:ApplicationDomain>
+                <pfx3:Severity>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/Severity"/>
+                </pfx3:Severity>
+                <pfx3:DoTrace>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/EnableTrace"/>
+                </pfx3:DoTrace>
+                <pfx3:LogLevel>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/LogLevel"/>
+                </pfx3:LogLevel>
+                <pfx3:ReplayQueue>
+                    <xsl:value-of select="concat($_globalVariables/ns2:GlobalVariables/Env, $_globalVariables/ns2:GlobalVariables/InterfaceSpecific/PointToPoint_188800_188806_MDM/ReplayQueue)"/>
+                </pfx3:ReplayQueue>
+            </pfx3:InterfaceSpecificVariables>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="JobSharedVariables">
+        <pd:type>com.tibco.pe.core.SetSharedVariableActivity</pd:type>
+        <pd:resourceType>ae.activities.setSharedVariable</pd:resourceType>
+        <pd:x>354</pd:x>
+        <pd:y>47</pd:y>
+        <config>
+            <variableConfig>/SharedResources/SharedVariables/OneUp/ProcessVariables_JSV.jobsharedvariable</variableConfig>
+            <showResult>true</showResult>
+        </config>
+        <pd:inputBindings>
+            <xsl:variable name="TID" select="if (string-length($_processContext/ns1:ProcessContext/CustomId) > 0) then $_processContext/ns1:ProcessContext/CustomId else Gen_ID:genID()"/>
+            <pfx3:ProcessVariableList>
+                <pfx3:Header>
+                    <pfx3:ApplicationID>
+                        <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/Application_ID"/>
+                    </pfx3:ApplicationID>
+                    <pfx3:ServiceName>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:ServiceName"/>
+                    </pfx3:ServiceName>
+                    <pfx3:ComponentName>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:ComponentName"/>
+                    </pfx3:ComponentName>
+                    <pfx3:Hostname>
+                        <xsl:value-of select="tib:left($_processContext/ns1:ProcessContext/EngineName, 50)"/>
+                    </pfx3:Hostname>
+                    <pfx3:Timestamp>
+                        <xsl:value-of select="current-dateTime()"/>
+                    </pfx3:Timestamp>
+                    <pfx3:TransactionDomain>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:TransactionDomain"/>
+                    </pfx3:TransactionDomain>
+                    <pfx3:TransactionType>
+                        <xsl:value-of select="&quot;Update&quot;"/>
+                    </pfx3:TransactionType>
+                    <pfx3:TransactionID>
+                        <xsl:value-of select="$TID"/>
+                    </pfx3:TransactionID>
+                    <pfx3:BusinessID>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:BusinessID"/>
+                    </pfx3:BusinessID>
+                    <xsl:if test="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:ApplicationDomain">
+                        <pfx3:ApplicationDomain>
+                            <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:ApplicationDomain"/>
+                        </pfx3:ApplicationDomain>
+                    </xsl:if>
+                    <pfx3:BusinessID2>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:BusinessID2"/>
+                    </pfx3:BusinessID2>
+                </pfx3:Header>
+                <pfx3:Category>
+                    <xsl:value-of select="&quot;Application&quot;"/>
+                </pfx3:Category>
+                <pfx3:Type>
+                    <xsl:value-of select="&quot;BW&quot;"/>
+                </pfx3:Type>
+                <pfx3:Severity>
+                    <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:Severity"/>
+                </pfx3:Severity>
+                <pfx3:TID>
+                    <xsl:value-of select="$TID"/>
+                </pfx3:TID>
+                <pfx3:BeginTime>
+                    <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:BeginTime"/>
+                </pfx3:BeginTime>
+                <pfx3:DoTrace>
+                    <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:DoTrace"/>
+                </pfx3:DoTrace>
+                <pfx3:LogLevel>
+                    <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:LogLevel"/>
+                </pfx3:LogLevel>
+                <xsl:if test="$ISVariables/pfx3:InterfaceSpecificVariables/ns:DataEncoding">
+                    <ns:DataEncoding>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/ns:DataEncoding"/>
+                    </ns:DataEncoding>
+                </xsl:if>
+                <xsl:if test="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:ReplayQueue">
+                    <pfx3:ReplayQueue>
+                        <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/pfx3:ReplayQueue"/>
+                    </pfx3:ReplayQueue>
+                </xsl:if>
+                <ns:MessageHeader/>
+                <ns:SendExactMessage>
+                    <xsl:value-of select="$ISVariables/pfx3:InterfaceSpecificVariables/ns:SendExactMessage"/>
+                </ns:SendExactMessage>
+            </pfx3:ProcessVariableList>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Log_Processed">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>757</pd:x>
+        <pd:y>48</pd:y>
+        <config>
+            <processName>/UtilityServices/Logging/SubmitLogOneUpThin.process</processName>
+        </config>
+        <pd:inputBindings>
+            <SubmitLog>
+                <ns:Status>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/CommonServices/Logging/EndStatus"/>
+                </ns:Status>
+                <ns:TimeDuration>
+                    <xsl:value-of select="tib:timestamp()-$JobSharedVariables/pfx3:ProcessVariableList/pfx3:BeginTime"/>
+                </ns:TimeDuration>
+                <xsl:if test="$JobSharedVariables/pfx3:ProcessVariableList/pfx3:DoTrace=&quot;true&quot;">
+                    <ns:Messages>
+                        <ns:Name>
+                            <xsl:value-of select="'TSTEP'"/>
+                        </ns:Name>
+                        <ns:Value>
+                            <xsl:value-of select="'EXIT'"/>
+                        </ns:Value>
+                    </ns:Messages>
+                </xsl:if>
+            </SubmitLog>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Log_Received">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>493</pd:x>
+        <pd:y>48</pd:y>
+        <config>
+            <processName>/UtilityServices/Logging/SubmitLogOneUpThin.process</processName>
+        </config>
+        <pd:inputBindings>
+            <SubmitLog>
+                <ns:Status>
+                    <xsl:value-of select="$_globalVariables/ns2:GlobalVariables/CommonServices/Logging/BeginStatus"/>
+                </ns:Status>
+                <ns:TimeDuration>
+                    <xsl:value-of select="tib:timestamp()-$JobSharedVariables/pfx3:ProcessVariableList/pfx3:BeginTime"/>
+                </ns:TimeDuration>
+                <xsl:if test="$JobSharedVariables/pfx3:ProcessVariableList/pfx3:DoTrace=&quot;true&quot;">
+                    <ns:Messages>
+                        <ns:Name>
+                            <xsl:value-of select="&quot;TSTEP&quot;"/>
+                        </ns:Name>
+                        <ns:Value>
+                            <xsl:value-of select="&quot;ENTER&quot;"/>
+                        </ns:Value>
+                    </ns:Messages>
+                </xsl:if>
+            </SubmitLog>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Error-1">
+        <pd:type>com.tibco.plugin.timer.NullActivity</pd:type>
+        <pd:resourceType>ae.activities.null</pd:resourceType>
+        <pd:x>354</pd:x>
+        <pd:y>165</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:activity name="Submit_Exception">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>494</pd:x>
+        <pd:y>163</pd:y>
+        <config>
+            <processName>/UtilityServices/ExceptionHandling/SubmitExceptionOneUpThin.process</processName>
+        </config>
+        <pd:inputBindings>
+            <SubmitException>
+                <xsl:copy-of select="$_error/ns1:ErrorReport"/>
+                <ns:MessagesNVP>
+                    <ns:Name>
+                        <xsl:value-of select="&quot;MESFCT&quot;"/>
+                    </ns:Name>
+                    <ns:Value>
+                        <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/MESFCT"/>
+                    </ns:Value>
+                </ns:MessagesNVP>
+                <ns:MessagesNVP>
+                    <ns:Name>
+                        <xsl:value-of select="&quot;STDVRS&quot;"/>
+                    </ns:Name>
+                    <ns:Value>
+                        <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/STDVRS"/>
+                    </ns:Value>
+                </ns:MessagesNVP>
+                <ns:MessagesNVP>
+                    <ns:Name>
+                        <xsl:value-of select="&quot;RCVPRN&quot;"/>
+                    </ns:Name>
+                    <ns:Value>
+                        <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/RCVPRN"/>
+                    </ns:Value>
+                </ns:MessagesNVP>
+                <ns:MessagesNVP>
+                    <ns:Name>
+                        <xsl:value-of select="&quot;CREDAT&quot;"/>
+                    </ns:Name>
+                    <ns:Value>
+                        <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/CREDAT"/>
+                    </ns:Value>
+                </ns:MessagesNVP>
+                <ns:MessagesNVP>
+                    <ns:Name>
+                        <xsl:value-of select="&quot;CRETIM&quot;"/>
+                    </ns:Name>
+                    <ns:Value>
+                        <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/CRETIM"/>
+                    </ns:Value>
+                </ns:MessagesNVP>
+                <ns:MessagesNVP>
+                    <ns:Name>
+                        <xsl:value-of select="&quot;RCVLAD&quot;"/>
+                    </ns:Name>
+                    <ns:Value>
+                        <xsl:value-of select="$AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x/EDI__DC/RCVLAD"/>
+                    </ns:Value>
+                </ns:MessagesNVP>
+                <ns:TransactionData>
+                    <xsl:value-of select="tib:render-xml($AdapterSubscriber/ProcessStarterOutput/body/pfx7:Z__CUSTHIER__CRT-4x)"/>
+                </ns:TransactionData>
+            </SubmitException>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="WriteToLog">
+        <pd:type>com.tibco.pe.core.WriteToLogActivity</pd:type>
+        <pd:resourceType>ae.activities.log</pd:resourceType>
+        <pd:x>663</pd:x>
+        <pd:y>252</pd:y>
+        <config>
+            <role>User</role>
+        </config>
+        <pd:inputBindings>
+            <ns13:ActivityInput>
+                <message>
+                    <xsl:value-of select="concat(&quot;Suspending engine due to an unexpected error. Error details:  &quot;, $Catch/exceptiondata/*)"/>
+                </message>
+                <msgCode>
+                    <xsl:value-of select="'UnexpectedError'"/>
+                </msgCode>
+            </ns13:ActivityInput>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Null">
+        <pd:type>com.tibco.plugin.timer.NullActivity</pd:type>
+        <pd:resourceType>ae.activities.null</pd:resourceType>
+        <pd:x>665</pd:x>
+        <pd:y>344</pd:y>
+        <config/>
+        <pd:inputBindings/>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Log_Processed</pd:from>
+        <pd:to>Confirm</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>CoreProcess</pd:from>
+        <pd:to>Log_Processed</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>CoreProcess</pd:from>
+        <pd:to>Submit_Exception</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-52429</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Submit_Exception</pd:from>
+        <pd:to>Confirm</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Confirm</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Log_Processed</pd:from>
+        <pd:to>Submit_Exception</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Error</pd:from>
+        <pd:to>ISVariablesAssign</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65485</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Catch</pd:from>
+        <pd:to>WriteToLog</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Engine Command</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>JobSharedVariables</pd:from>
+        <pd:to>Log_Received</pd:to>
+        <pd:xpathDescription>Success</pd:xpathDescription>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>xpath</pd:conditionType>
+        <pd:xpath>not(exists($_error))</pd:xpath>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>JobSharedVariables</pd:from>
+        <pd:to>Error-1</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>ISVariablesAssign</pd:from>
+        <pd:to>JobSharedVariables</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Log_Received</pd:from>
+        <pd:to>CoreProcess</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Log_Received</pd:from>
+        <pd:to>Submit_Exception</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>ISVariablesAssign</pd:from>
+        <pd:to>Error-1</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>JobSharedVariables</pd:from>
+        <pd:to>Submit_Exception</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>otherwise</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Error-1</pd:from>
+        <pd:to>Submit_Exception</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>WriteToLog</pd:from>
+        <pd:to>Engine Command</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>AdapterSubscriber</pd:from>
+        <pd:to>ISVariablesAssign</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>AdapterSubscriber</pd:from>
+        <pd:to>Error</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-52429</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Catch</pd:from>
+        <pd:to>Null</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>WriteToLog</pd:from>
+        <pd:to>Null</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-65536</pd:lineColor>
+        <pd:conditionType>error</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Null</pd:from>
+        <pd:to>Engine Command</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:label>
+        <pd:name>Label (3)</pd:name>
+        <pd:description>Developers will need to configure the following in the Starter Process:
+1. Folder Name 
+      -Replace the CaliberID and TechDesignID's with the actual ID values  
+2.  JMS Topic Subscriber (Configuration Tab) 
+     - Destination Topic
+     - Durable Subscription Value
+     - Inpput data format type
+     - Input schema of source data (Output Editor Tab)
+3.  ISVariablesAssign (Input Tab)
+     - Map the Interface Specific Variables
+4. CoreProcess (Input Tab)
+     - Map the inputs to the CoreProcess (e.g. Message Payload)
+5. SubmitException Process Call (Input Tab)
+     - Map in the TransactionData
+6.  Interface Specific Global Variables Values
+     - Replace the CaliberID_TechDesignID with the actual ID's folder name
+    - ServiceID, Source, Target, and TransactionDomain</pd:description>
+        <pd:x>1733</pd:x>
+        <pd:y>86</pd:y>
+        <pd:width>488</pd:width>
+        <pd:height>153</pd:height>
+        <pd:fontName>dialog.bold-plain-12</pd:fontName>
+        <pd:fontColor>-16777216</pd:fontColor>
+        <pd:color>-13369549</pd:color>
+        <pd:type>solid</pd:type>
+        <pd:thickness>1</pd:thickness>
+        <pd:fade>true</pd:fade>
+    </pd:label>
+</pd:ProcessDefinition>

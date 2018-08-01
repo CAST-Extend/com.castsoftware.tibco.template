@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+<metric id="2758010" type="quality-rule" originalName="Tibco SDK: Activity type cannot be migrated" filter="2758009" filterLabel="Tibco"/>
+</root>

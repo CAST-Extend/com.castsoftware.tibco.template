@@ -1,0 +1,4 @@
+<Activities>
+    <Valid></Valid>
+    <Invalid>ae.activities.onErrorProcess,ae.activities.onEventTimeout,ae.activities.JDBCGetConnectionActivity,bw.jrmi.lookup,bw.jrmi.starter</Invalid>
+</Activities>

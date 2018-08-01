@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="client" file_no="758">
+
+    <type name="Tibco_SUBSET" id="2758001">
+		<description>Tibco Subset</description>
+		<inheritedCategory name="PROJECT_SUBSET"/>
+		<inheritedCategory name="Tibco"/>
+		<inheritedCategory name="APM Tibco Module"/>
+    </type>
+    
+	<category name="APM Tibco Module" id="2758009">
+		<description>Tibco</description>
+		<inheritedCategory name="APM Client Modules"/>
+	</category>
+
+	<category name="APM Tibco Artifacts" id="2758202">
+		<description>Tibco Artifacts</description>
+		<inheritedCategory name="APM Client Language Artifacts"/>
+		<!-- <inheritedCategory name="APM Sources"/> -->
+	</category>
+	
+	<category name="Tibco" id="2758003">
+		<description>Tibco</description>
+		<!--<attribute name="extensions" stringValue="*.aeschema;*.sharedjdbc;*.javaschema;*.sharedhttp;*.sharedjmscon;*.process;*.sharedjmsapp;*.bwp;*.MF;*.substvar;*.httpclientresource;*.httpconnresource;*.jmsconnresource;*.jdbcresource;*.mf;*.xsd;*.dtd;*.xml;*.xslt;*.wsdl;"/>-->
+		<attribute name="extensions" stringValue="*.process"/>
+		<inheritedCategory name="UniversalLanguage"/>
+		<inheritedCategory name="CsvLanguage"/>
+	</category>
+	
+	
+	<!-- Tibco Enlighten group -->
+	<type name="EnlightenTibco" id="2758004">
+		<description>Tibco</description>
+		<tree parent="EnlightenUniversalObjects" category="EnlightenTree"/>
+	</type>
+	
+	
+	<!-- #################################### Objects Defining #################################### -->
+	<type name="Tibco_Project" id="2758005">
+		<description>Tibco_Project</description>
+		<inheritedCategory name="UAProject"/>
+		<inheritedCategory name="Tibco"/>
+		<inheritedCategory name="APM Tibco Module"/>
+	</type>
+	
+		
+	<type name="Tibco_Process" id="2758002">
+		<description>Tibco Process</description>
+		<inheritedCategory name="UAObject"/>
+		<inheritedCategory name="caseInsensitive"/>
+		<inheritedCategory name="Tibco"/>
+		<inheritedCategory name="APM Tibco Artifacts"/>
+		<inheritedCategory name="Tibco_CustomMetrics"/>
+	</type>
+	
+	
+	<category name="Tibco_CustomMetrics" id="27580010">
+		<description>Custom category for additional properties on Tibco analysis</description>
+	  <property name="Activitycannotbemigrated" type="integer"  merge ="sum" id="2758020">
+			<description>Tibco SDK: Activity type cannot be migrated</description>
+			<attribute name="INF_TYPE" intValue="2758020"/>
+			<attribute name="INF_SUB_TYPE" intValue="0"/>
+			<attribute name="ACCESS_APPVIEW" intValue="1"/>
+			<attribute name="ACCESS_CVS" intValue="1"/>
+	 </property>
+	</category>
+	
+</metaModel>
+
